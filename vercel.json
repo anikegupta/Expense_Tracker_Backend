@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "https://your-external-site.com/:path*"
+    }
+  ]
+}
