@@ -19,7 +19,7 @@ import profileRoutes from "./routes/profile.route.js"
 const app=express()
 
 app.use(cors({
-    origin:"https://expense-tracker-frontend-1izd.vercel.app",
+    origin:"https://expense-tracker-frontend-1izd.vercel.app/api",
 }))
 
 // it will parse your json
