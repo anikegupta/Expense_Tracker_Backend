@@ -61,7 +61,4 @@ app.get("/",(req,resp)=>
 )
 
 //server start
-app.listen(8010,()=>
-{
-    console.log("server is running on port 8010")
-})
+
