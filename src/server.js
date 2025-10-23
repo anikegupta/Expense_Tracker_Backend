@@ -1,17 +1,15 @@
 import dotenv from "dotenv";
-dotenv.config({
-  path: "../.env",
-})
+dotenv.config()
 import express from 'express'
 import fs from "fs";
 import path from "path";
+import connectDb from './config/db.js'
 import expenseRouter from './routes/expense.route.js'
 import productRouter from './routes/product.route.js'
 import userRouter from './routes/user.route.js' 
 import { authMiddleware } from './middleware/auth.middleware.js'
 import { errorHandler, notFound } from './errors/error.js'
 import cors from "cors"
-import connectDb from './config/db.js'
 import authRouter from './routes/auth.route.js'
 import aiRouter from './routes/ai.route.js'
 import profileRoutes from "./routes/profile.route.js"
@@ -19,7 +17,8 @@ import profileRoutes from "./routes/profile.route.js"
 const app=express()
 
 app.use(cors({
-    origin:"https://expense-tracker-frontend-1izd.vercel.app",
+    origin:["https://expense-tracker-frontend-1izd.vercel.app"],
+    credentials: true,
 }))
 
 // it will parse your json
@@ -62,3 +61,4 @@ app.get("/",(req,resp)=>
 
 //server start
 
+export default app;
