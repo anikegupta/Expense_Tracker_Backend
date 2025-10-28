@@ -20,7 +20,8 @@ const app=express()
 
 app.use(cors({
     origin:"http://localhost:5173",
-    "https://expensetracker0011.netlify.app"
+    "https://expensetracker0011.netlify.app",
+    credentials:true,
 }))
 
 // it will parse your json
