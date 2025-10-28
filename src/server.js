@@ -1,3 +1,4 @@
+import cors from "cors"
 import dotenv from "dotenv";
 dotenv.config({
   path: "../.env",
@@ -10,7 +11,6 @@ import productRouter from './routes/product.route.js'
 import userRouter from './routes/user.route.js' 
 import { authMiddleware } from './middleware/auth.middleware.js'
 import { errorHandler, notFound } from './errors/error.js'
-import cors from "cors"
 import connectDb from './config/db.js'
 import authRouter from './routes/auth.route.js'
 import aiRouter from './routes/ai.route.js'
@@ -19,7 +19,7 @@ import profileRoutes from "./routes/profile.route.js"
 const app=express()
 
 app.use(cors({
-    origin:"*"
+    origin:"https://expensetracker0011.netlify.app"
 }))
 
 // it will parse your json
