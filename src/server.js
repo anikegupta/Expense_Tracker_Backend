@@ -19,7 +19,9 @@ import profileRoutes from "./routes/profile.route.js"
 const app=express()
 
 app.use(cors({
-    origin:"https://expensetracker0011.netlify.app"
+    origin:"https://expensetracker0011.netlify.app",
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:true,
 }))
 
 // it will parse your json
