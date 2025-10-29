@@ -25,8 +25,8 @@ app.use(cors({
 // it will parse your json
 app.use(express.json({limit:"10mb"}))
 //midddleware
-app.use(authMiddleware)
 app.use("/api",authRouter)
+app.use(authMiddleware)
 
 // these are routes
 
