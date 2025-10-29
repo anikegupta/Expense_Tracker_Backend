@@ -9,7 +9,7 @@ import path from "path";
 import expenseRouter from './routes/expense.route.js'
 import productRouter from './routes/product.route.js'
 import userRouter from './routes/user.route.js' 
-import { authMiddleware } from './middleware/auth.middleware.js'
+// import { authMiddleware } from './middleware/auth.middleware.js'
 import { errorHandler, notFound } from './errors/error.js'
 import connectDb from './config/db.js'
 import authRouter from './routes/auth.route.js'
