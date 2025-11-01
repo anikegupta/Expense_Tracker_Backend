@@ -19,10 +19,11 @@ import profileRoutes from "./routes/profile.route.js"
 const app=express()
 
 app.use(cors({
-    origin:"https://expensetracker0011.netlify.app",
+    origin:["https://expensetracker0011.netlify.app"],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true,
 }))
+const PORT=process.env.PORT||8010
 
 // it will parse your json
 app.use(express.json({limit:"10mb"}))
@@ -63,7 +64,7 @@ app.get("/",(req,resp)=>
 )
 
 //server start
-app.listen(8010,()=>
+app.listen(PORT,()=>
 {
     console.log("server is running on port 8010")
 })
