@@ -18,11 +18,24 @@ import profileRoutes from "./routes/profile.route.js"
 //to start app
 const app=express()
 
-app.use(cors({
-    origin:["https://expensetracker0011.netlify.app"],
-    methods:["GET","POST","PUT","DELETE"],
-    credentials:true,
-}))
+const allowedOrigins = [
+  "https://expensetracker0011.netlify.app",
+  "http://localhost:5173"
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);  
 const PORT=process.env.PORT||8010
 
 // it will parse your json
