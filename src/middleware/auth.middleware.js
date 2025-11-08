@@ -4,7 +4,7 @@ import { ACCESS_SECRET } from "../utils/constants.js";
 export let authMiddleware = (req, resp, next) => {
 //   console.log("this is my custom middleware..");
 //   console.log(req.headers);
-  const { authorization } = req.headers;
+  let { authorization } = req.headers["authorization"];
 //   console.log(authorization);
 
   if (!authorization) {
@@ -13,13 +13,13 @@ export let authMiddleware = (req, resp, next) => {
     });
   }
 
-//   if (!authorization.startsWith("Bearer ")) {
-//     return resp.status(403).json({
-//       message: "Invalid token , token is not starting with bearer",
-//     });
-//   }
+  if (!authorization.startsWith("Bearer ")) {
+    return resp.status(403).json({
+      message: "Invalid token , token is not starting with bearer",
+    });
+  }
 
-//   authorization = authorization.substring(7);
+  authorization = authorization.substring(7);
 
   try {
     const payload = jsonwebtoken.verify(authorization, ACCESS_SECRET);

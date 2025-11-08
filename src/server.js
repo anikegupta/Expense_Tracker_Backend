@@ -34,6 +34,7 @@ app.use(
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: "Content-Type,Authorization",
   })
 );  
 const PORT=process.env.PORT||8010
